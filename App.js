@@ -43,7 +43,11 @@ export default class App extends Component<Props> {
   }
 }
 
+
+// API (not real CSS):
 // https://facebook.github.io/react-native/docs/stylesheet
+// Style cheatsheet:
+// https://github.com/vhpoet/react-native-styling-cheat-sheet
 const styles = StyleSheet.create({
   // https://facebook.github.io/react-native/docs/flexbox
   container: {
