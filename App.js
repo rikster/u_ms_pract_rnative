@@ -7,14 +7,14 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, TextInput } from "react-native";
-
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button
+} from "react-native";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -31,18 +31,21 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-
       <View style={styles.container}>
-        <TextInput
-          style={{ width: 300, borderColor: "black", borderWidth: 1 }}
-          value={this.state.placename}
-          onChangeText={this.placeNameChangeHandler}
-        />
+        <View style={styles.inputContainer} >
+          <TextInput
+            style={styles.placeInput}
+            placeholder="a place holder"
+            style={{ }}
+            value={this.state.placename}
+            onChangeText={this.placeNameChangeHandler}
+          />
+          <Button title="Add" style={styles.buttonInput} />
+        </View>
       </View>
     );
   }
 }
-
 
 // API (not real CSS):
 // https://facebook.github.io/react-native/docs/stylesheet
@@ -52,10 +55,23 @@ const styles = StyleSheet.create({
   // https://facebook.github.io/react-native/docs/flexbox
   container: {
     flex: 1,
-    // padding: 10,
-    marginTop: 10,
+    padding: 10,
+    // marginTop: 10,
     justifyContent: "flex-start", // flex- direction default - top-to-bottom - white background fix w/ flex: 1
     alignItems: "center",
     backgroundColor: "#fff"
+  },
+  inputContainer: {
+    // flex: 1,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
+  placeInput: {
+    width: "70%"
+  },
+  buttonInput:{
+    width: "30%"
   }
 });
